@@ -9,7 +9,7 @@ use Validator;
 class BooksController extends Controller
 {
     public function showBooksTable() {
-        $books = Book::orderBy('created_at', 'asc')->get();
+        $books = Book::orderBy('created_at', 'asc')->paginate(3);
         return view('books', ['books' => $books]); // 質問：viewの第二引数の役割とここの記述の意味
     }
     
