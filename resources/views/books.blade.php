@@ -5,7 +5,7 @@
 <div class="panel-body">
     @include('common.errors')
     
-    <form action="{{url('books')}}" method="POST" class="form-horizontal">
+    <form action="{{url('books')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
         {{csrf_field()}}
         
         <div class="formgroup">
@@ -39,6 +39,12 @@
             <div class="col-ms-6">
                 <input type="date" name="published" id="published" class="form-control"/>
             </div>
+
+            <label for="item_img" class="col-sm-3control-label">書籍の写真</label>
+            <div class="col-ms-6">
+                <input type="file" name="item_img" id="item_img" class="form-control"/>
+            </div>
+
         </div>
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-6">
@@ -52,14 +58,12 @@
     @if (count($books) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
-                現在の本
+                書籍一覧
             </div>
             <div class="panel-body">
                 <table class="table table-striped task-table">
                     <thread>
-                        <th>
-                            本一覧
-                        </th>
+                        <th>Title</th>
                         <th>&nbsp;</th>
                         <th>&nbsp;</th>
                     </thread>
@@ -67,9 +71,9 @@
                     <tbody>
                         @foreach ($books as $book)
                         <tr>
-                            <!--タイトル-->
                             <td class="table-text">
                                 <div>{{$book->item_name}}</div>
+                                <div><img src="upload/{{$book->item_img}}" width="100"></img></div>
                             </td>
                             <!--更新ボタン-->
                             <td>

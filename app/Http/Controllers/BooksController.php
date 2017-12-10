@@ -28,14 +28,23 @@ class BooksController extends Controller
                                 ['item_name' => 'required | min:1 |max:255',
                                 'item_number' => 'required | min:1 | max: 3',
                                 'item_amount' => 'required | min:1 | max: 6',
-                                'author' => 'required | min:1 | max: 10',
-                                'publisher' => 'required | min:1 | max: 10',
+                                'author' => 'required | min:3 | max: 20',
+                                'publisher' => 'required | min:3 | max: 20',
                                 'published' => 'required']);
     
         if ($validator->fails()) {
             return redirect('/')
                         ->withInput()
                         ->withErrors($validator);
+        }
+    
+        $file = $request->file('item_img');
+        
+        if(!empty($file)) {
+            $filename = $file->getClientOriginalName();
+            $move = $file->move('./upload/', $filename);  // $move必要？
+        } else {
+            $filename = "";
         }
     
         $books = new Book;
@@ -47,7 +56,8 @@ class BooksController extends Controller
         $books->author = $request->author;
         $books->publisher = $request->publisher;
         $books->published = $request->published;
-    
+        $books->item_img = $filename;
+        
         $books->save();
         return redirect('/');
     }
@@ -58,8 +68,8 @@ class BooksController extends Controller
                                 'item_name' => 'required | min:1 |max:255',
                                 'item_number' => 'required | min:1 | max: 3',
                                 'item_amount' => 'required | min:1 | max: 6',
-                                'author' => 'required | min:1 | max: 10',
-                                'publisher' => 'required | min:1 | max: 10',
+                                'author' => 'required | min:3 | max: 20',
+                                'publisher' => 'required | min:3 | max: 20',
                                 'published' => 'required']); 
         if ($validator->fails()) {
             return redirect('/')
