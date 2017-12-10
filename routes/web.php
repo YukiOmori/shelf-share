@@ -14,12 +14,16 @@
 use App\Book;
 use Illuminate\Http\Request;
 
-Route::get('/', 'BooksController@showBooksTable');
+Route::get('/', 'BooksController@index');
 
 Route::post('/books', 'BooksController@store');
 
-Route::post('/booksedit/{books}','BooksController@showBookData');
+Route::post('/booksedit/{books}','BooksController@edit');
 
 Route::post('/books/update', 'BooksController@update');
 
 Route::delete('/book/{book}', 'BooksController@delete');
+
+Auth::routes();
+
+Route::get('/home', 'BooksController@index')->name('home');
