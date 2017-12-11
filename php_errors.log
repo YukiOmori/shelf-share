@@ -1,0 +1,56 @@
+[10-Dec-2017 11:10:56 UTC] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php:752
+Stack trace:
+#0 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(752): ReflectionClass->__construct('view')
+#1 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(631): Illuminate\Container\Container->build('view')
+#2 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(586): Illuminate\Container\Container->resolve('view', Array)
+#3 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(732): Illuminate\Container\Container->make('view', Array)
+#4 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(110): Illuminate\Foundation\Application->make('view', Array)
+#5 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Il in /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 752
+[10-Dec-2017 11:11:05 UTC] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php:752
+Stack trace:
+#0 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(752): ReflectionClass->__construct('view')
+#1 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(631): Illuminate\Container\Container->build('view')
+#2 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(586): Illuminate\Container\Container->resolve('view', Array)
+#3 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(732): Illuminate\Container\Container->make('view', Array)
+#4 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(110): Illuminate\Foundation\Application->make('view', Array)
+#5 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Il in /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 752
+[10-Dec-2017 11:11:26 UTC] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php:752
+Stack trace:
+#0 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(752): ReflectionClass->__construct('view')
+#1 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(631): Illuminate\Container\Container->build('view')
+#2 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(586): Illuminate\Container\Container->resolve('view', Array)
+#3 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(732): Illuminate\Container\Container->make('view', Array)
+#4 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(110): Illuminate\Foundation\Application->make('view', Array)
+#5 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Il in /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 752
+[10-Dec-2017 11:12:26 UTC] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php:752
+Stack trace:
+#0 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(752): ReflectionClass->__construct('view')
+#1 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(631): Illuminate\Container\Container->build('view')
+#2 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(586): Illuminate\Container\Container->resolve('view', Array)
+#3 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(732): Illuminate\Container\Container->make('view', Array)
+#4 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(110): Illuminate\Foundation\Application->make('view', Array)
+#5 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Il in /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 752
+[10-Dec-2017 11:12:34 UTC] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php:752
+Stack trace:
+#0 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(752): ReflectionClass->__construct('view')
+#1 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(631): Illuminate\Container\Container->build('view')
+#2 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(586): Illuminate\Container\Container->resolve('view', Array)
+#3 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(732): Illuminate\Container\Container->make('view', Array)
+#4 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(110): Illuminate\Foundation\Application->make('view', Array)
+#5 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Il in /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 752
+[10-Dec-2017 11:13:34 UTC] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php:752
+Stack trace:
+#0 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(752): ReflectionClass->__construct('view')
+#1 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(631): Illuminate\Container\Container->build('view')
+#2 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(586): Illuminate\Container\Container->resolve('view', Array)
+#3 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(732): Illuminate\Container\Container->make('view', Array)
+#4 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(110): Illuminate\Foundation\Application->make('view', Array)
+#5 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Il in /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 752
+[10-Dec-2017 11:13:35 UTC] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php:752
+Stack trace:
+#0 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(752): ReflectionClass->__construct('view')
+#1 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(631): Illuminate\Container\Container->build('view')
+#2 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php(586): Illuminate\Container\Container->resolve('view', Array)
+#3 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(732): Illuminate\Container\Container->make('view', Array)
+#4 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(110): Illuminate\Foundation\Application->make('view', Array)
+#5 /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Il in /home/ubuntu/workspace/shelfshare/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 752
