@@ -28,6 +28,10 @@ class BooksController extends Controller
         return view('books', ['books' => $books]);
     }
     
+    public function register() {
+        return view('bookRegister');
+    }
+    
     public function edit($book_id) {
        $books = Book::where('user_id', Auth::user()->id)->find($book_id);
        return view('booksedit', ['book' => $books]); 
