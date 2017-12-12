@@ -1,0 +1,11 @@
+#wrapper {
+    display: flex;
+}
+
+#sidebar {
+    background-color: #fff;
+}
+
+#mainbar {
+    background-color: #000;
+}

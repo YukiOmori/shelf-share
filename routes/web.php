@@ -27,3 +27,5 @@ Route::delete('/book/{book}', 'BooksController@delete');
 Auth::routes();
 
 Route::get('/home', 'BooksController@index')->name('home');
+
+Route::post('/usersedit/{users}', 'UsersController@edit');

@@ -19,7 +19,7 @@ class BooksController extends Controller
     }
     
     public function edit($book_id) {
-       $books - Book::where('user_id', Auth::user()->id)->find($book_id);
+       $books = Book::where('user_id', Auth::user()->id)->find($book_id);
        return view('booksedit', ['book' => $books]); 
     }
 

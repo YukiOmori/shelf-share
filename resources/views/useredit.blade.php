@@ -5,7 +5,7 @@
     <div class="col-md-12">
         @include('common.errors')
         
-        <form action="{{url('books/update')}}" method="POST">
+        <form action="{{url('users/update')}}" method="POST">
             <div class="form-group">
                 <label for="name">ユーザー名</label>
                 <input class="form-control" type="text" name="name" value="{{$user->name}}"/>
