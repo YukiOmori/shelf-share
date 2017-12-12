@@ -40,11 +40,11 @@ class BooksController extends Controller
     public function store(Request $request) {
         $validator = Validator::make($request->all(), 
                                 ['item_name' => 'required | min:1 |max:255',
-                                'item_number' => 'required | min:1 | max: 3',
-                                'item_amount' => 'required | min:1 | max: 6',
                                 'author' => 'required | min:3 | max: 20',
                                 'publisher' => 'required | min:3 | max: 20',
-                                'published' => 'required']);
+                                'published' => 'required',
+                                'owner' => 'required | min:3 | max: 20'
+                                ]);
     
         if ($validator->fails()) {
             return redirect('/')

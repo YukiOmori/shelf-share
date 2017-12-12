@@ -17,11 +17,11 @@ class CreateBooksTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('item_name');
-            $table->integer('item_number');
-            $table->integer('item_amount');
             $table->string('author');
             $table->string('publisher');
             $table->datetime('published');
+            $table->string('owner');
+            $table->string('borrower');
             $table->string('item_img');
             $table->timestamps();
         });

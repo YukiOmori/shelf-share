@@ -13,16 +13,6 @@
                 <input type="text" name="item_name" id="book-name" class="form-control"/>
             </div>
 
-            <label for="item_number" class="col-sm-3control-label">数量</label>
-            <div class="col-ms-6">
-                <input type="text" name="item_number" id="item_number" class="form-control"/>
-            </div>
-
-            <label for="item_amount" class="col-sm-3control-label">定価（税別）</label>
-            <div class="col-ms-6">
-                <input type="text" name="item_amount" id="item_amount" class="form-control"/>
-            </div>
-
             <label for="author" class="col-sm-3control-label">著者</label>
             <div class="col-ms-6">
                 <input type="text" name="author" id="author" class="form-control"/>
@@ -32,7 +22,6 @@
             <div class="col-ms-6">
                 <input type="text" name="publisher" id="publisher" class="form-control"/>
             </div>
-
 
             <label for="published" class="col-sm-3control-label">発行日</label>
             <div class="col-ms-6">
