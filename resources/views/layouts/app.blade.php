@@ -93,6 +93,8 @@
         </nav>
         
         <div id="wrapper">
+            @guest
+            @else
             <aside id="sidebar">
                 <ul>
                     <li><a href="{{url('/')}}"  class="glyphicon glyphicon-search">蔵書検索</a></li>
@@ -101,6 +103,7 @@
                     <li><a href="{{url('/books/borrow')}}" class="glyphicon glyphicon-open-file">借入書籍</a></li>
                 </ul>
             </aside>
+            @endguest
             <main id="main">
                 @yield('content')
             </main>

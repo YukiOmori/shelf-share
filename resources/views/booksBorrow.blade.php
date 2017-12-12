@@ -2,14 +2,13 @@
 
 @section('content')
 
-    @if (count($books) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
                 借入書籍一覧
             </div>
             <div class="panel-body">
                 <table class="table table-striped task-table">
-                    <thread>
+                    <thead>
                         <th>タイトル</th>
                         <th>著者</th>
                         <th>出版社</th>
@@ -18,8 +17,8 @@
                         <th>返却日</th>                        
                         <th>&nbsp;</th>
                         <th>&nbsp;</th>
-                    </thread>
-                    
+                    </thead>
+                @if (count($books) > 0)
                     <tbody>
                         @foreach ($books as $book)
                         <tr>
@@ -66,6 +65,19 @@
                         </tr>
                         @endforeach
                     </tbody>
+                @else
+                     <tbody>
+                        <tr>
+                            <td>該当のデータがありません。</td>
+                            <td>&nbsp</td>
+                            <td>&nbsp</td>
+                            <td>&nbsp</td>
+                            <td>&nbsp</td>
+                            <td>&nbsp</td>
+                            <td>&nbsp</td>
+                        </tr>
+                    </tbody>
+                @endif
                 </table>
                 <div class="row">
                     <div class="col-md-4 col-md-offset-4">
@@ -74,8 +86,5 @@
                 </div>
             </div>
         </div>
-    @endif
-    
-</div>
 
 @endsection

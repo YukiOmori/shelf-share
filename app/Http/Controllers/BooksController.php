@@ -13,6 +13,10 @@ class BooksController extends Controller
         $this->middleware('auth');
     }
     
+    public function home() {
+        return view('home');
+    }
+
     public function index() {
         $books = Book::where('user_id', Auth::user()->id)->orderBy('created_at', 'asc')->paginate(5);
         return view('books', ['books' => $books]);
@@ -65,11 +69,10 @@ class BooksController extends Controller
         
         $books->user_id = Auth::user()->id;
         $books->item_name = $request->item_name;
-        $books->item_number = $request->item_number;
-        $books->item_amount = $request->item_amount;
         $books->author = $request->author;
         $books->publisher = $request->publisher;
         $books->published = $request->published;
+        $books->owner = Auth::user()->name;
         $books->item_img = $filename;
         
         $books->save();
