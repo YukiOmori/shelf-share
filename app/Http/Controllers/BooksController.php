@@ -14,8 +14,18 @@ class BooksController extends Controller
     }
     
     public function index() {
-        $books = Book::where('user_id', Auth::user()->id)->orderBy('created_at', 'asc')->paginate(3);
-        return view('books', ['books' => $books]); // 質問：viewの第二引数の役割とここの記述の意味
+        $books = Book::where('user_id', Auth::user()->id)->orderBy('created_at', 'asc')->paginate(5);
+        return view('books', ['books' => $books]);
+    }
+    
+    public function indexLend() {
+        $books = Book::where('user_id', Auth::user()->id)->orderBy('created_at', 'asc')->paginate(5);
+        return view('books', ['books' => $books]);
+    }
+    
+    public function indexBorrow() {
+        $books = Book::where('user_id', Auth::user()->id)->orderBy('created_at', 'asc')->paginate(5);
+        return view('books', ['books' => $books]);
     }
     
     public function edit($book_id) {

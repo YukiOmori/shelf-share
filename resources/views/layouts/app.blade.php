@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <!-- Original CSS-->
-    <link rel="stylesheet" href="{{asset('/assets/css/main.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{asset('css/main.css')}}" type="text/css" />
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
@@ -91,8 +91,19 @@
                 </div>
             </div>
         </nav>
+        
+        <div id="wrapper">
+            <aside id="sidebar">
+                <ul>
+                    <li class="glyphicon glyphicon-search"><a href="{{url('/')}}">蔵書検索</a></li>
+                    <li class="glyphicon glyphicon-plus"><a href="{{url('/books/register')}}">書籍登録</a></li>
+                    <li class="glyphicon glyphicon-save-file"><a href="{{url('/books/lend')}}">貸出書籍</a></li>
+                    <li class="glyphicon glyphicon-open-file"><a href="{{url('/books/borrow')}}">借入書籍</a></li>
+                </ul>
+            </aside>
+            @yield('content')
+        </div>
 
-        @yield('content')
     </div>
 
     <!-- Scripts -->

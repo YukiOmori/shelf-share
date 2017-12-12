@@ -27,6 +27,8 @@ Route::delete('/book/{book}', 'BooksController@delete');
 Auth::routes();
 
 Route::get('/home', 'BooksController@index')->name('home');
+Route::get('/books/lend', 'BooksController@indexLend');
+Route::get('/books/borrow', 'BooksController@indexBorrow');
 
 Route::post('/usersedit/{users}', 'UsersController@edit');
 
