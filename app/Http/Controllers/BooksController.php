@@ -32,26 +32,25 @@ class BooksController extends Controller
         return view('booksBorrow', ['books' => $books]);
     }
     
-    public function register() {
-        return view('bookRegister');
-    }
-    
     public function edit($book_id) {
        $books = Book::where('user_id', Auth::user()->id)->find($book_id);
        return view('booksedit', ['book' => $books]); 
     }
 
+    public function register() {
+        return view('bookRegister');
+    }
+    
     public function store(Request $request) {
         $validator = Validator::make($request->all(), 
                                 ['item_name' => 'required | min:1 |max:255',
-                                'author' => 'required | min:3 | max: 20',
+                                'author' => 'required | max: 20',
                                 'publisher' => 'required | min:3 | max: 20',
-                                'published' => 'required',
-                                'owner' => 'required | min:3 | max: 20'
+                                'published' => 'required'
                                 ]);
     
         if ($validator->fails()) {
-            return redirect('/')
+            return redirect('/books/registerz')
                         ->withInput()
                         ->withErrors($validator);
         }
@@ -72,9 +71,12 @@ class BooksController extends Controller
         $books->author = $request->author;
         $books->publisher = $request->publisher;
         $books->published = $request->published;
+        $books->borrower_id = 0;
+        $books->borrower = 'Available';
         $books->owner = Auth::user()->name;
         $books->item_img = $filename;
-        
+
+    // TODO: ここにエラー発生の場合飛んでしまわないように分岐したい
         $books->save();
         return redirect('/');
     }
