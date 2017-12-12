@@ -1,9 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
-    <div class="col-md-12">
-        
+<div class="panel panel-default">
+    <div class="panel-heading">
+        書籍の情報を入力
+    </div>
+
+    <div class="panel-body">        
         <form action="{{url('books/update')}}" method="POST">
             <div class="form-group">
                 <label for="item_name">Title</label>
@@ -22,16 +25,13 @@
             
             <div class="form-group">
                 <label for="published">Published At</label>
-                <input class="form-control" type="text" name="published" value="{{$book->published}}"/>
+                <input class="form-control" type="datetime" name="published" value="{{$book->published}}"/>
             </div>
             
             @include('common.errors')
             
-            <div class="well sell-sm">
-                <button type="submit" class="btn btn-primary">Save</button>
-                <a href="{{url('/')}}" class="btn btn-link pull-right">
-                    <i class="glyphicon glyphicon-backward"></i>Back
-                </a>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="{{url('/')}}" class="btn btn-warning">Cancel</a>
             </div>
             
             <input type="hidden" name="id" value="{{$book->id}}"/>

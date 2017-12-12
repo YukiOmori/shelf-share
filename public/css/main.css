@@ -34,7 +34,8 @@ body {
 
 #sidebar ul{
     margin-bottom: 0;
-    padding: 0;
+    padding-left: 0;
+    padding-top: 50px;
 }
 
 #sidebar ul li{
@@ -46,4 +47,18 @@ body {
 
 #sidebar ul li a{
     color: #fff;
+}
+
+/**********************
+    form
+**********************/
+.form-group div{
+    margin:0 auto 20px 100px;    
+}
+
+form button {
+    margin-left: 200px;
+}
+label {
+    width: 200px;
 }

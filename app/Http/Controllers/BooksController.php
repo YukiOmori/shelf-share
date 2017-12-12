@@ -45,6 +45,7 @@ class BooksController extends Controller
         $validator = Validator::make($request->all(), 
                                 ['item_name' => 'required | min:1 |max:255',
                                 'author' => 'required | max: 20',
+                                'store' => 'required',
                                 'publisher' => 'required | min:3 | max: 20',
                                 'published' => 'required'
                                 ]);
@@ -69,6 +70,7 @@ class BooksController extends Controller
         $books->user_id = Auth::user()->id;
         $books->item_name = $request->item_name;
         $books->author = $request->author;
+        $books->store = $request->store;
         $books->publisher = $request->publisher;
         $books->published = $request->published;
         $books->borrower_id = 0;
