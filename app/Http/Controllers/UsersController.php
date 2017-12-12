@@ -14,7 +14,29 @@ class UsersController extends Controller
     }
 
     public function edit($user_id) {
-       $user_data = User::where('user_id', Auth::user()->id);
-       return view('useredit', ['user' => $user_data]); 
+       $user_id = User::where('user_id', Auth::user()->id);
+       return view('useredit', ['user_id' => $user_id]); 
+    }
+    
+    public function update(Request $request) {
+       $validator = Validator::make($request->all(),
+                                ['id' => 'required',
+                                'name' => 'required|string|max:255',
+                                'email' => 'required|string|email|max:255|unique:users']); 
+                                
+        if ($validator->fails()) {
+            return redirect('/')
+                        ->withInput()
+                        ->withErrors($validator);
+        }
+    
+        $user = User::where('id', Auth::user()->id)->find($request->id);
+        
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        $user->save();
+        return redirect('/');
+       
     }
 }

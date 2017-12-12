@@ -8,20 +8,24 @@
         <form action="{{url('users/update')}}" method="POST">
             <div class="form-group">
                 <label for="name">ユーザー名</label>
-                <input class="form-control" type="text" name="name" value="{{$user->name}}"/>
+                <input class="form-control" type="text" name="name" value="{{Auth::user()->name}}"/>
             </div>
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input class="form-control" type="email" name="email" value="{{$user->email}}"/>
+                <input class="form-control" type="email" name="email" value="{{Auth::user()->email}}"/>
             </div>
 
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input class="form-control" type="text" name="password" value="{{$user->password}}"/>
+            <input type="hidden" name="id" value="{{Auth::user()->id}}"/>
+            <!--TODO: パスワード変更出来るようにしたい-->
+            <!--<input type="hidden" name="password" value="{{Auth::user()->password}}"/>-->
+            
+            <div class="well sell-sm">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="{{url('/')}}" class="btn btn-link pull-right">
+                    <i class="glyphicon glyphicon-backward"></i>Back
+                </a>
             </div>
-          
-            <input type="hidden" name="id" value="{{$user->id}}"/>
 
             {{csrf_field()}}
         </form>
