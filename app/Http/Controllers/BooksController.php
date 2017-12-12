@@ -20,12 +20,12 @@ class BooksController extends Controller
     
     public function indexLend() {
         $books = Book::where('user_id', Auth::user()->id)->orderBy('created_at', 'asc')->paginate(5);
-        return view('books', ['books' => $books]);
+        return view('booksLend', ['books' => $books]);
     }
     
     public function indexBorrow() {
         $books = Book::where('user_id', Auth::user()->id)->orderBy('created_at', 'asc')->paginate(5);
-        return view('books', ['books' => $books]);
+        return view('booksBorrow', ['books' => $books]);
     }
     
     public function register() {

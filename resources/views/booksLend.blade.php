@@ -5,7 +5,7 @@
     @if (count($books) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
-                書籍一覧
+                貸出書籍一覧
             </div>
             <div class="panel-body">
                 <table class="table table-striped task-table">
@@ -14,7 +14,6 @@
                         <th>著者</th>
                         <th>出版社</th>
                         <th>所有店舗</th>
-                        <th>所有者</th>
                         <th>借人</th>
                         <th>返却日</th>                        
                         <th>&nbsp;</th>
@@ -36,9 +35,6 @@
                             </td>
                             <td class="table-text">
                                 <div>{{$book->store}}</div>
-                            </td>
-                            <td class="table-text">
-                                <div>{{$book->owner}}</div>
                             </td>
                             <td class="table-text">
                                 <div>{{$book->borrower}}</div>
