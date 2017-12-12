@@ -1,7 +1,49 @@
-#wrapper {
-    display: flex;
+html {
+    height: 100%;
 }
 
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.navbar{
+    margin-bottom: 0;
+}
+
+#wrapper {
+    display: flex;
+    height: 100%;
+}
+
+/**********************
+    main
+**********************/
+#main{
+    width: 100%;
+}
+
+/**********************
+    sidebar
+**********************/
 #sidebar {
-    background-color: #fff;
+    background-color: #2b5aa5;
+    font-size: 16px;
+    height: 1000px;
+}
+
+#sidebar ul{
+    margin-bottom: 0;
+    padding: 0;
+}
+
+#sidebar ul li{
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+    list-style: none;
+}
+
+#sidebar ul li a{
+    color: #fff;
 }

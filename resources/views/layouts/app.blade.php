@@ -95,13 +95,15 @@
         <div id="wrapper">
             <aside id="sidebar">
                 <ul>
-                    <li class="glyphicon glyphicon-search"><a href="{{url('/')}}">蔵書検索</a></li>
-                    <li class="glyphicon glyphicon-plus"><a href="{{url('/books/register')}}">書籍登録</a></li>
-                    <li class="glyphicon glyphicon-save-file"><a href="{{url('/books/lend')}}">貸出書籍</a></li>
-                    <li class="glyphicon glyphicon-open-file"><a href="{{url('/books/borrow')}}">借入書籍</a></li>
+                    <li><a href="{{url('/')}}"  class="glyphicon glyphicon-search">蔵書検索</a></li>
+                    <li><a href="{{url('/books/register')}}" class="glyphicon glyphicon-plus">書籍登録</a></li>
+                    <li><a href="{{url('/books/lend')}}" class="glyphicon glyphicon-save-file">貸出書籍</a></li>
+                    <li><a href="{{url('/books/borrow')}}" class="glyphicon glyphicon-open-file">借入書籍</a></li>
                 </ul>
             </aside>
-            @yield('content')
+            <main id="main">
+                @yield('content')
+            </main>
         </div>
 
     </div>
