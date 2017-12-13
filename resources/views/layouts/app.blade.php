@@ -108,6 +108,7 @@
                     <li><a href="{{url('/books/register')}}"><i class="fa fa-plus-circle" aria-hidden="true"></i>書籍登録</a></li>
                     <li><a href="{{url('/books/lend')}}"><i class="fa fa-book" aria-hidden="true"></i><i class="fa fa-arrow-right" aria-hidden="true"></i>貸出書籍</a></li>
                     <li><a href="{{url('/books/borrow')}}"><i class="fa fa-book" aria-hidden="true"></i><i class="fa fa-arrow-left" aria-hidden="true"></i>借入書籍</a></li>
+                    <li><a href="{{url('/books/favorite')}}"><i class="fa fa-star" aria-hidden="true"></i>お気に入り</a></li>
                 </ul>
             </aside>
             @endguest

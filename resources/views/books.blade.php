@@ -58,12 +58,11 @@
                             
                             <!--お気に入りボタン-->
                             <td>
-                                <form action="{{url('book/'.$book->id)}}" method="POST">
+                                <form action="{{url('book/addFavorite')}}" method="POST">
                                     {{csrf_field()}}
-                                    {{method_field('DELETE')}}
-                                    
+                                    <input type="hidden" name="book_id" value="{{$book->id}}"/>
                                     <button type="submit" class="btn btn-warning">
-                                        <i class="glyphicon glyphicon-star"></i>
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
                                     </button>
                                 </form>
                             </td>

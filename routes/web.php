@@ -26,6 +26,10 @@ Route::post('/books/update', 'BooksController@update');
 Route::post('/books/addBorrower', 'BooksController@addBorrower');
 Route::post('/books/deleteBorrower', 'BooksController@deleteBorrower');
 
+Route::get('/books/favorite', 'FavoriteListController@index');
+Route::post('/book/addFavorite', 'FavoriteListController@store');
+Route::delete('/book/deleteFavorite/{list}', 'FavoriteListController@delete');
+
 Route::delete('/book/{book}', 'BooksController@delete');
 
 
