@@ -83,3 +83,10 @@ label {
 .moda-body span {
     diplay:inline-block;
 }
+
+/**********************
+    table
+**********************/
+table th, table td {
+    width: 150px;
+}

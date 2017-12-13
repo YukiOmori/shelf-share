@@ -11,6 +11,7 @@
             <div class="panel-body">
                 <table class="table table-striped task-table">
                     <thead>
+                        <th>イメージ</th>
                         <th>タイトル</th>
                         <th>著者</th>
                         <th>出版社</th>
@@ -26,9 +27,11 @@
                         @foreach ($books as $book)
 
                         <tr>
+                            <td>
+                                <div><img src="upload/{{$book->item_img}}" width="100"></img></div>
+                            </td>
                             <td class="table-text">
                                 <div>{{$book->item_name}}</div>
-                                <!--<div><img src="upload/{{$book->item_img}}" width="100"></img></div>-->
                             </td>
                             <td class="table-text">
                                 <div>{{$book->author}}</div>
@@ -71,6 +74,7 @@
                     <tbody>
                         <tr>
                             <td>該当のデータがありません。</td>
+                            <td>&nbsp</td>
                             <td>&nbsp</td>
                             <td>&nbsp</td>
                             <td>&nbsp</td>
