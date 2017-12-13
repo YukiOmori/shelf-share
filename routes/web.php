@@ -19,6 +19,7 @@ Route::get('/', 'BooksController@index');
 Route::post('/books', 'BooksController@store');
 
 Route::post('/booksedit/{books}','BooksController@edit');
+Route::get('/booksdetail/{books}','BooksController@showDetail');
 
 Route::post('/books/update', 'BooksController@update');
 

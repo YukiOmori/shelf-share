@@ -19,9 +19,14 @@
 
     <!-- Original CSS-->
     <link rel="stylesheet" href="{{asset('css/main.css')}}" type="text/css" />
+    
+    <!--favicon-->
+    <link rel="shortcut icon" href="{{ asset('images/favicon/favicon.ico') }}"  type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{asset('images/favicon/apple-touch-icon.png')}}" />
+    
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="{{asset('js/sub.js')}}"></script>
+    <script src="https://use.fontawesome.com/7c88af45de.js"></script>
 </head>
 <body>
     <div id="app">
@@ -98,10 +103,11 @@
             @else
             <aside id="sidebar">
                 <ul>
-                    <li><a href="{{url('/')}}"  class="glyphicon glyphicon-search">蔵書検索</a></li>
-                    <li><a href="{{url('/books/register')}}" class="glyphicon glyphicon-plus">書籍登録</a></li>
-                    <li><a href="{{url('/books/lend')}}" class="glyphicon glyphicon-save-file">貸出書籍</a></li>
-                    <li><a href="{{url('/books/borrow')}}" class="glyphicon glyphicon-open-file">借入書籍</a></li>
+                    <li><a href="{{url('/home')}}"><i class="fa fa-home" aria-hidden="true"></i>HOME</a></li>
+                    <li><a href="{{url('/')}}"><i class="fa fa-search" aria-hidden="true"></i>蔵書検索</a></li>
+                    <li><a href="{{url('/books/register')}}"><i class="fa fa-plus-circle" aria-hidden="true"></i>書籍登録</a></li>
+                    <li><a href="{{url('/books/lend')}}"><i class="fa fa-book" aria-hidden="true"></i><i class="fa fa-arrow-right" aria-hidden="true"></i>貸出書籍</a></li>
+                    <li><a href="{{url('/books/borrow')}}"><i class="fa fa-book" aria-hidden="true"></i><i class="fa fa-arrow-left" aria-hidden="true"></i>借入書籍</a></li>
                 </ul>
             </aside>
             @endguest

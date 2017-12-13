@@ -1,35 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
-    <div class="col-md-12">
-        @include('common.errors')
-        
+<div class="panel panel-default">
+    <div class="panel-heading">
+        ユーザー情報を編集
+    </div>
+    <div class="panel-body">   
         <form action="{{url('users/update')}}" method="POST">
-            <div class="form-group">
-                <label for="name">ユーザー名</label>
-                <input class="form-control" type="text" name="name" value="{{Auth::user()->name}}"/>
-            </div>
+        {{csrf_field()}}
+            <div class="form-group" id="user-setting-form">
+                <div>
+                    <label for="name">ユーザー名</label>
+                    <input class="form-control" type="text" name="name" value="{{Auth::user()->name}}"/>
+                </div>
+            
+                <div>
+                    <label for="email">Email</label>
+                    <input class="form-control" type="email" name="email" value="{{Auth::user()->email}}"/>
+                </div>
 
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input class="form-control" type="email" name="email" value="{{Auth::user()->email}}"/>
             </div>
-
+            @include('common.errors')
+            
             <input type="hidden" name="id" value="{{Auth::user()->id}}"/>
             <!--TODO: パスワード変更出来るようにしたい-->
             <!--<input type="hidden" name="password" value="{{Auth::user()->password}}"/>-->
-            
-            <div class="well sell-sm">
-                <button type="submit" class="btn btn-primary">Save</button>
-                <a href="{{url('/')}}" class="btn btn-link pull-right">
-                    <i class="glyphicon glyphicon-backward"></i>Back
-                </a>
-            </div>
-
-            {{csrf_field()}}
+            @include('common.errors')
+            <button type="submit" class="btn btn-success" id="user-setting-button">修正</button>
         </form>
     </div>
 </div>
-
 @endsection

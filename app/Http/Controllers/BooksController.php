@@ -33,6 +33,15 @@ class BooksController extends Controller
         $books = Book::where('borrower_id', Auth::user()->id)->orderBy('created_at', 'asc')->paginate(5);
         return view('booksBorrow', ['books' => $books]);
     }
+
+    public function showDetail($book_id) {
+       $books = Book::find($book_id);
+       if ($books->user_id == Auth::user()->id) {
+           return view('booksedit', ['book' => $books]); 
+       } else {
+           return view('bookDetail', ['book' => $books]);    
+       }
+    }    
     
     public function edit($book_id) {
        $books = Book::where('user_id', Auth::user()->id)->find($book_id);

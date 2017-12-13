@@ -31,7 +31,7 @@
                                 <div><img src="upload/{{$book->item_img}}" width="100"></img></div>
                             </td>
                             <td class="table-text">
-                                <div>{{$book->item_name}}</div>
+                                <div><a href="{{url('booksdetail/'.$book->id)}}">{{$book->item_name}}</a></div>
                             </td>
                             <td class="table-text">
                                 <div>{{$book->author}}</div>

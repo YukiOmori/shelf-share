@@ -10,7 +10,7 @@
         <form action="{{url('books')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
             {{csrf_field()}}
             
-            <div class="form-group">
+            <div class="form-group" id="book-registration-form">
                 <div>
                     <label for="item-name">タイトル</label>
                     <input type="text" name="item_name" id="book-name"/>
@@ -49,10 +49,10 @@
             </div>
             @include('common.errors')
 
-            <button class="btn btn-primary" type="submit">
-                シェアする
+            <button class="btn btn-primary" id="book-registration-button" type="submit">
+                登録
             </button>
-
+        </form>
     </div>
 </div>
 @endsection
