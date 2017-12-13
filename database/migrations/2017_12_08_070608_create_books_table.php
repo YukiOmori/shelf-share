@@ -24,6 +24,7 @@ class CreateBooksTable extends Migration
             $table->string('store');
             $table->string('borrower_id');
             $table->string('borrower');
+            $table->string('return_date');
             $table->string('item_img');
             $table->timestamps();
         });

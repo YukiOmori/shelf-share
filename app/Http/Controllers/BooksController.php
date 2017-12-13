@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Book;
 use Validator;
 use Auth;
+use Carbon\Carbon;
 
 class BooksController extends Controller
 {
@@ -18,8 +19,9 @@ class BooksController extends Controller
     }
 
     public function index() {
-        $books = Book::where('user_id', Auth::user()->id)->orderBy('created_at', 'asc')->paginate(5);
-        return view('books', ['books' => $books]);
+        $books = Book::orderBy('created_at', 'asc')->paginate(5);
+        $nowDate = new Carbon(Carbon::now());
+        return view('books', ['books' => $books, 'nowDate' => $nowDate]);
     }
     
     public function indexLend() {
@@ -28,7 +30,7 @@ class BooksController extends Controller
     }
     
     public function indexBorrow() {
-        $books = Book::where('user_id', Auth::user()->id)->orderBy('created_at', 'asc')->paginate(5);
+        $books = Book::where('borrower_id', Auth::user()->id)->orderBy('created_at', 'asc')->paginate(5);
         return view('booksBorrow', ['books' => $books]);
     }
     
@@ -76,6 +78,7 @@ class BooksController extends Controller
         $books->borrower_id = 0;
         $books->borrower = 'Available';
         $books->owner = Auth::user()->name;
+        $books->return_date = '';
         $books->item_img = $filename;
 
     // TODO: ここにエラー発生の場合飛んでしまわないように分岐したい

@@ -3,8 +3,9 @@
 @section('content')
 
         <div class="panel panel-default">
-            <div class="panel-heading">
-                借入書籍一覧
+            <div class="panel-heading" id="header-panel">
+                <span>借入書籍一覧</span>
+                <input type="text" class="search-query span3" id="search" placeholder="Search">
             </div>
             <div class="panel-body">
                 <table class="table table-striped task-table">
@@ -15,7 +16,6 @@
                         <th>所有店舗</th>
                         <th>所有者</th>
                         <th>返却日</th>                        
-                        <th>&nbsp;</th>
                         <th>&nbsp;</th>
                     </thead>
                 @if (count($books) > 0)
@@ -41,27 +41,13 @@
                             <td class="table-text">
                                 <div>{{$book->return_date}}</div>
                             </td>
-                            <!--更新ボタン-->
+                            <!--返却ボタン-->
                             <td>
-                                <form action="{{url('booksedit/'.$book->id)}}" method="POST">
-                                    {{csrf_field()}}
-                                    
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="glyphicon glyphicon-pencil"></i>
-                                    </button>
-                                </form>
+                                <button class="btn btn-primary" id="return-button">
+                                    <a>返却する</a>
+                                </button>
                             </td>
-                            <!--削除ボタン-->
-                            <td>
-                                <form action="{{url('book/'.$book->id)}}" method="POST">
-                                    {{csrf_field()}}
-                                    {{method_field('DELETE')}}
-                                    
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="glyphicon glyphicon-trash"></i>
-                                    </button>
-                                </form>
-                            </td>
+                        </tr>
                         </tr>
                         @endforeach
                     </tbody>

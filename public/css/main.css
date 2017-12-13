@@ -17,6 +17,19 @@ body {
 }
 
 /**********************
+    header
+**********************/
+#header-panel{
+    display: flex;
+    justify-content: space-between;
+}
+
+#search{
+    display: inline-block;
+    border-radius: 5px;
+}
+
+/**********************
     main
 **********************/
 #main{
@@ -56,9 +69,17 @@ body {
     margin:0 auto 20px 100px;    
 }
 
-form button {
-    margin-left: 200px;
-}
 label {
     width: 200px;
+}
+
+/**********************
+    form
+**********************/
+.modal-body label{
+    width: 150px;
+}
+
+.moda-body span {
+    diplay:inline-block;
 }

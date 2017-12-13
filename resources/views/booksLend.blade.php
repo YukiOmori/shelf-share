@@ -3,8 +3,9 @@
 @section('content')
 
         <div class="panel panel-default">
-            <div class="panel-heading">
-                貸出書籍一覧
+            <div class="panel-heading" id="header-panel">
+                <span>貸出書籍一覧</span>
+                <input type="text" class="search-query span3" id="search" placeholder="Search">
             </div>
             <div class="panel-body">
                 <table class="table table-striped task-table">
@@ -15,8 +16,7 @@
                         <th>所有店舗</th>
                         <th>借人</th>
                         <th>返却日</th>                        
-                        <th>&nbsp;</th>
-                        <th>&nbsp;</th>
+                        <td>&nbsp</td>
                     </thread>
                 @if (count($books) > 0)
                     <tbody>
@@ -41,24 +41,13 @@
                             <td class="table-text">
                                 <div>{{$book->return_date}}</div>
                             </td>
-                            <!--更新ボタン-->
-                            <td>
-                                <form action="{{url('booksedit/'.$book->id)}}" method="POST">
-                                    {{csrf_field()}}
-                                    
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="glyphicon glyphicon-pencil"></i>
-                                    </button>
-                                </form>
-                            </td>
-                            <!--削除ボタン-->
                             <td>
                                 <form action="{{url('book/'.$book->id)}}" method="POST">
                                     {{csrf_field()}}
                                     {{method_field('DELETE')}}
                                     
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="glyphicon glyphicon-trash"></i>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="glyphicon glyphicon-pencil"></i>
                                     </button>
                                 </form>
                             </td>

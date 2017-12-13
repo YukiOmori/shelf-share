@@ -3,8 +3,9 @@
 @section('content')
 
         <div class="panel panel-default">
-            <div class="panel-heading">
-                シェアされている書籍
+            <div class="panel-heading" id="header-panel">
+                <span>シェアされている書籍</span>
+                <input type="text" class="search-query span3" id="search" placeholder="Search">
             </div>
             <div class="panel-body">
                 <table class="table table-striped task-table">
@@ -45,24 +46,75 @@
                             <td class="table-text">
                                 <div>{{$book->return_date}}</div>
                             </td>
-                            <!--更新ボタン-->
+                            <!--借りるボタン-->
                             <td>
-                                <form action="{{url('booksedit/'.$book->id)}}" method="POST">
-                                    {{csrf_field()}}
-                                    
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="glyphicon glyphicon-pencil"></i>
-                                    </button>
-                                </form>
+                                <button type="button" class="btn btn-primary" id="borrow-button"  data-toggle="modal" data-target="#borrowModal{{$book->id}}">
+                                    <a>借りる</a>
+                                </button>
                             </td>
-                            <!--削除ボタン-->
+                            
+                            <div class="modal fade" id="borrowModal{{$book->id}}">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">借りる内容を確認してください</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                      <label>タイトル</label>
+                                      <span>{{$book->item_name}}</span>
+                                  </div>
+                                  
+                                  <div class="modal-body">
+                                      <label>著者</label>
+                                      <span>{{$book->author}}</span>
+                                  </div>
+                                  <div class="modal-body">
+                                      <label>出版社</label>
+                                      <span>{{$book->publisher}}</span>
+                                  </div>
+
+                                  <div class="modal-body">
+                                      <label>発行日</label>
+                                      <span>{{$book->published}}</span>
+                                  </div>
+
+                                  <div class="modal-body">
+                                      <label>所有者</label>
+                                      <span>{{$book->owner}}</span>
+                                  </div>
+
+                                  <div class="modal-body">
+                                      <label>店舗</label>
+                                      <span>{{$book->store}}</span>
+                                  </div>
+
+                                  <div class="modal-body">
+                                      <label>借入期間</label>
+                                      <input type="date" name="start_date"/>〜<input type="date" name="return_date"/>
+                                  </div>
+                                
+                                  @include('common.errors')
+                                  <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary" data-dismiss="modal">借りる</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">閉じる</button>
+                                    <form type="hidden" action="{{url('/books/edit')}}" method="POST">
+                                        {{csrf_field()}}
+                                        
+                                    </form>
+
+                                   </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!--お気に入りボタン-->
                             <td>
                                 <form action="{{url('book/'.$book->id)}}" method="POST">
                                     {{csrf_field()}}
                                     {{method_field('DELETE')}}
                                     
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="glyphicon glyphicon-trash"></i>
+                                    <button type="submit" class="btn btn-warning">
+                                        <i class="glyphicon glyphicon-star"></i>
                                     </button>
                                 </form>
                             </td>
