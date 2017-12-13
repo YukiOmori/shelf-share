@@ -138,6 +138,28 @@ class BooksController extends Controller
         return redirect('/');
     }
      
+    public function deleteBorrower(Request $request) {
+        $validator = Validator::make($request->all(),
+                                [
+                                    'id' => 'required'
+                                ]);
+                                
+        if ($validator->fails()) {
+            return redirect('/books/register')
+                            ->withInput()
+                            ->withErrors($validator);
+        }                        
+                                
+        $books = Book::find($request->id);
+        
+        $books->borrower_id = 0;
+        $books->borrower = 'Available';
+        // $books->start_date = '';
+        $books->return_date = '';
+        $books->save();
+        return redirect('/books/borrow');
+    }
+
     public function delete (Book $book) {
         $book->delete();
         return redirect('/');

@@ -43,9 +43,7 @@
                             </td>
                             <!--返却ボタン-->
                             <td>
-                                <button class="btn btn-primary" id="return-button">
-                                    <a>返却する</a>
-                                </button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#returnModal{{$book->id}}">返却する</button>
                             </td>
                         </tr>
                         </tr>
@@ -72,5 +70,62 @@
                 </div>
             </div>
         </div>
+
+@foreach($books as $book)
+    <div class="modal fade" id="returnModal{{$book->id}}">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">借りる内容を確認してください</h4>
+          </div>
+          <form action="{{url('books/deleteBorrower')}}" method="POST">
+            {{csrf_field()}}
+              <div class="modal-body">
+                  <label>タイトル</label>
+                  <span>{{$book->item_name}}</span>
+              </div>
+              
+              <div class="modal-body">
+                  <label>著者</label>
+                  <span>{{$book->author}}</span>
+              </div>
+
+              <div class="modal-body">
+                  <label>出版社</label>
+                  <span>{{$book->publisher}}</span>
+              </div>
+
+              <div class="modal-body">
+                  <label>発行日</label>
+                  <span>{{$book->published}}</span>
+              </div>
+
+              <div class="modal-body">
+                  <label>所有者</label>
+                  <span>{{$book->owner}}</span>
+              </div>
+
+              <div class="modal-body">
+                  <label>店舗</label>
+                  <span>{{$book->store}}</span>
+              </div>
+
+              <div class="modal-body">
+                  <label>返却日</label>
+                  <span>{{$book->return_date}}</span>
+              </div>
+            
+              @include('common.errors')
+              <div class="modal-footer">
+                    <input type="hidden" name="id" value="{{$book->id}}"/>
+                    <button type="submit" class="btn btn-primary">返却手続きを完了する</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">閉じる</button>
+               </div>
+           </form>
+        </div>
+      </div>
+</div>
+@endforeach
 
 @endsection
