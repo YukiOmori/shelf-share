@@ -8,6 +8,7 @@
 
     <div class="panel-body">        
         <form action="{{url('books/update')}}" method="POST">
+            {{csrf_field()}}
             <div class="form-group">
                 <label for="item_name">Title</label>
                 <input class="form-control" type="text" name="item_name" value="{{$book->item_name}}"/>
@@ -30,13 +31,15 @@
             
             @include('common.errors')
             
-            <button type="submit" class="btn btn-primary">Save</button>
-            <a href="{{url('/')}}" class="btn btn-warning">Cancel</a>
-            </div>
-            
             <input type="hidden" name="id" value="{{$book->id}}"/>
+            <input type="hidden" name="borrower_id" value="0"/>
+            <input type="hidden" name="borrower" value="Available"/>
+            <input type="hidden" name="owner" value="{{Auth::user()->name}}"/>
 
-            {{csrf_field()}}
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="{{url('/books/lend')}}" class="btn btn-warning">Cancel</a>
+            </div>
+
         </form>
     </div>
 </div>

@@ -17,6 +17,7 @@
                         <th>借人</th>
                         <th>返却日</th>                        
                         <td>&nbsp</td>
+                        <td>&nbsp</td>
                     </thread>
                 @if (count($books) > 0)
                     <tbody>
@@ -42,12 +43,21 @@
                                 <div>{{$book->return_date}}</div>
                             </td>
                             <td>
+                                <form action="{{url('/booksedit/'.$book->id)}}" method="POST">
+                                    {{csrf_field()}}
+                                    
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="glyphicon glyphicon-pencil"></i>
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
                                 <form action="{{url('book/'.$book->id)}}" method="POST">
                                     {{csrf_field()}}
                                     {{method_field('DELETE')}}
                                     
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="glyphicon glyphicon-pencil"></i>
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="glyphicon glyphicon-trash"></i>
                                     </button>
                                 </form>
                             </td>

@@ -7,6 +7,7 @@
                 <span>シェアされている書籍</span>
                 <input type="text" class="search-query span3" id="search" placeholder="Search">
             </div>
+            @include('common.errors')
             <div class="panel-body">
                 <table class="table table-striped task-table">
                     <thead>
@@ -23,6 +24,7 @@
     @if (count($books) > 0)                    
                     <tbody>
                         @foreach ($books as $book)
+
                         <tr>
                             <td class="table-text">
                                 <div>{{$book->item_name}}</div>
@@ -48,65 +50,9 @@
                             </td>
                             <!--借りるボタン-->
                             <td>
-                                <button type="button" class="btn btn-primary" id="borrow-button"  data-toggle="modal" data-target="#borrowModal{{$book->id}}">
-                                    <a>借りる</a>
-                                </button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#borrowModal{{$book->id}}">借りる</button>
                             </td>
                             
-                            <div class="modal fade" id="borrowModal{{$book->id}}">
-                              <div class="modal-dialog">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title">借りる内容を確認してください</h4>
-                                  </div>
-                                  <div class="modal-body">
-                                      <label>タイトル</label>
-                                      <span>{{$book->item_name}}</span>
-                                  </div>
-                                  
-                                  <div class="modal-body">
-                                      <label>著者</label>
-                                      <span>{{$book->author}}</span>
-                                  </div>
-                                  <div class="modal-body">
-                                      <label>出版社</label>
-                                      <span>{{$book->publisher}}</span>
-                                  </div>
-
-                                  <div class="modal-body">
-                                      <label>発行日</label>
-                                      <span>{{$book->published}}</span>
-                                  </div>
-
-                                  <div class="modal-body">
-                                      <label>所有者</label>
-                                      <span>{{$book->owner}}</span>
-                                  </div>
-
-                                  <div class="modal-body">
-                                      <label>店舗</label>
-                                      <span>{{$book->store}}</span>
-                                  </div>
-
-                                  <div class="modal-body">
-                                      <label>借入期間</label>
-                                      <input type="date" name="start_date"/>〜<input type="date" name="return_date"/>
-                                  </div>
-                                
-                                  @include('common.errors')
-                                  <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary" data-dismiss="modal">借りる</button>
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">閉じる</button>
-                                    <form type="hidden" action="{{url('/books/edit')}}" method="POST">
-                                        {{csrf_field()}}
-                                        
-                                    </form>
-
-                                   </div>
-                                </div>
-                              </div>
-                            </div>
                             <!--お気に入りボタン-->
                             <td>
                                 <form action="{{url('book/'.$book->id)}}" method="POST">
@@ -142,5 +88,70 @@
                 </div>
             </div>
         </div>
+@foreach($books as $book)
+    <div class="modal fade" id="borrowModal{{$book->id}}">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">借りる内容を確認してください</h4>
+          </div>
+          <form action="{{url('books/update')}}" method="POST">
+            {{csrf_field()}}
+              <div class="modal-body">
+                  <label>タイトル</label>
+                  <span>{{$book->item_name}}</span>
+              </div>
+              
+              <div class="modal-body">
+                  <label>著者</label>
+                  <span>{{$book->author}}</span>
+              </div>
+
+              <div class="modal-body">
+                  <label>出版社</label>
+                  <span>{{$book->publisher}}</span>
+              </div>
+
+              <div class="modal-body">
+                  <label>発行日</label>
+                  <span>{{$book->published}}</span>
+              </div>
+
+              <div class="modal-body">
+                  <label>所有者</label>
+                  <span>{{$book->owner}}</span>
+              </div>
+
+              <div class="modal-body">
+                  <label>店舗</label>
+                  <span>{{$book->store}}</span>
+              </div>
+
+              <div class="modal-body">
+                  <label>借入期間</label>
+                  <input type="date" name="start_date" required/>〜<input type="date" name="return_date" required/>
+              </div>
+            
+              @include('common.errors')
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" id="borrow-button" data-dismiss="modal">借りる</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">閉じる</button>
+
+                    <input type="hidden" name="id" value="{{$book->id}}"/>
+                    <input type="hidden" name="item_name" id="item_name" value="{{$book->item_name}}"/>
+                    <input type="hidden" name="author" id="author" value="{{$book->author}}"/>
+                    <input type="hidden" name="publisher" id="publisher" value="{{$book->publisher}}"/>
+                    <input type="hidden" name="published" id="published" value="{{$book->published}}"/>
+                    <input type="hidden" name="borrower_id" id="borrower_id" value="{{Auth::user()->id}}"/>
+                    <input type="hidden" name="borrower" id="borrower" value="{{Auth::user()->name}}"/>
+                    <input type="hidden" name="store" id="store" value="{{$book->store}}"/>
+               </div>
+           </form>
+        </div>
+      </div>
+</div>
+@endforeach
+
 
 @endsection

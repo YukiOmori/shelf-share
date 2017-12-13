@@ -88,28 +88,27 @@ class BooksController extends Controller
 
     public function update(Request $request) {
        $validator = Validator::make($request->all(),
-                                ['id' => 'required',
+                                [
+                                'id' => 'required',
                                 'item_name' => 'required | min:1 |max:255',
-                                'item_number' => 'required | min:1 | max: 3',
-                                'item_amount' => 'required | min:1 | max: 6',
                                 'author' => 'required | min:3 | max: 20',
                                 'publisher' => 'required | min:3 | max: 20',
-                                'published' => 'required']); 
+                                'published' => 'required'                                
+                                ]); 
         if ($validator->fails()) {
             return redirect('/')
                         ->withInput()
                         ->withErrors($validator);
         }
     
-        $books = Book::where('user_id', Auth::user()->id)->find($request->id);
+        $books = Book::find($request->id);
         
         $books->item_name = $request->item_name;
-        $books->item_number = $request->item_number;
-        $books->item_amount = $request->item_amount;
         $books->author = $request->author;
         $books->publisher = $request->publisher;
         $books->published = $request->published;
-        
+        $books->borrower_id = $request->borrower_id;
+        $books->borrower = $request->borrower;
         $books->save();
         return redirect('/');
     }
