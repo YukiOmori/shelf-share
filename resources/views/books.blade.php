@@ -96,7 +96,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">借りる内容を確認してください</h4>
           </div>
-          <form action="{{url('books/update')}}" method="POST">
+          <form action="{{url('books/addBorrower')}}" method="POST">
             {{csrf_field()}}
               <div class="modal-body">
                   <label>タイトル</label>
@@ -135,17 +135,12 @@
             
               @include('common.errors')
               <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" id="borrow-button" data-dismiss="modal">借りる</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">閉じる</button>
-
                     <input type="hidden" name="id" value="{{$book->id}}"/>
-                    <input type="hidden" name="item_name" id="item_name" value="{{$book->item_name}}"/>
-                    <input type="hidden" name="author" id="author" value="{{$book->author}}"/>
-                    <input type="hidden" name="publisher" id="publisher" value="{{$book->publisher}}"/>
-                    <input type="hidden" name="published" id="published" value="{{$book->published}}"/>
                     <input type="hidden" name="borrower_id" id="borrower_id" value="{{Auth::user()->id}}"/>
                     <input type="hidden" name="borrower" id="borrower" value="{{Auth::user()->name}}"/>
-                    <input type="hidden" name="store" id="store" value="{{$book->store}}"/>
+
+                    <button type="submit" class="btn btn-primary">借りる</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">閉じる</button>
                </div>
            </form>
         </div>

@@ -22,7 +22,10 @@ Route::post('/booksedit/{books}','BooksController@edit');
 
 Route::post('/books/update', 'BooksController@update');
 
+Route::post('/books/addBorrower', 'BooksController@addBorrower');
+
 Route::delete('/book/{book}', 'BooksController@delete');
+
 
 Auth::routes();
 

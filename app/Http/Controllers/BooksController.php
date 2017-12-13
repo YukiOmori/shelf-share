@@ -112,6 +112,31 @@ class BooksController extends Controller
         $books->save();
         return redirect('/');
     }
+    
+    public function addBorrower(Request $request) {
+        $validator = Validator::make($request->all(),
+                                ['id' => 'required',
+                                'borrower_id' => 'required',
+                                'borrower' => 'required',
+                                // 'start_date' => 'required',
+                                'return_date' => 'required'
+                                ]);
+                                
+        if ($validator->fails()) {
+            return redirect('/books/register')
+                            ->withInput()
+                            ->withErrors($validator);
+        }                        
+                                
+        $books = Book::find($request->id);
+        
+        $books->borrower_id = $request->borrower_id;
+        $books->borrower = $request->borrower;
+        // $books->start_date = $request->start_date;
+        $books->return_date = $request->return_date;
+        $books->save();
+        return redirect('/');
+    }
      
     public function delete (Book $book) {
         $book->delete();
