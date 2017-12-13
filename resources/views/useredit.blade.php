@@ -8,7 +8,7 @@
     <div class="panel-body">   
         <form action="{{url('users/update')}}" method="POST">
         {{csrf_field()}}
-            <div class="form-group" id="user-setting-form">
+            <div class="form-group originized-form">
                 <div>
                     <label for="name">ユーザー名</label>
                     <input class="form-control" type="text" name="name" value="{{Auth::user()->name}}"/>

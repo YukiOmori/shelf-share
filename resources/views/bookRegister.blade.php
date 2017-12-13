@@ -10,7 +10,7 @@
         <form action="{{url('books')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
             {{csrf_field()}}
             
-            <div class="form-group" id="book-registration-form">
+            <div class="form-group originized-form">
                 <div>
                     <label for="item-name">タイトル</label>
                     <input type="text" name="item_name" id="book-name"/>

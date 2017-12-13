@@ -7,7 +7,7 @@
     </div>
 
     <div class="panel-body">        
-        <form action="{{url('books/update')}}" method="POST">
+        <form action="{{url('books/update')}}" method="POST" class="originized-form">
             {{csrf_field()}}
             <div class="form-group">
                 <label for="item_name">Title</label>

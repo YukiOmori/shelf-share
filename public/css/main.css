@@ -110,7 +110,7 @@ table th, table td {
 /**********************
     book registration / user setting
 **********************/
-#book-registration-form input, #user-setting-form input{
+.originized-form input{
     -webkit-appearance: none;
     display: inline-block;
     border:0;
@@ -124,7 +124,23 @@ table th, table td {
     width:300px;
 }
 
-#book-registration-form #item_img{
+.originized-form .content{
+    display: inline-block;
+    border:0;
+    padding:10px;
+    font-size:1.0em;
+    font-family:Arial, sans-serif;
+    color:#000;
+    border-bottom:solid 1px #ccc;
+    margin:0 0 20px;
+    width:400px;
+}
+
+.originized-form #book-img{
+    border: 0;
+}
+
+.originized-form #item_img{
     display: inline-block;
 }
 
