@@ -12,15 +12,18 @@ class FavoriteListController extends Controller
 {
     public function index() {
         $pagination_num = 5;
-        $favorite_books = FavoriteList::where('user_id', Auth::user()->id)->orderBy('created_at', 'asc');
-        $totalCount = $favorite_books->count();
-        $favorite_books = $favorite_books->paginate($pagination_num);
-        $currentCount = $favorite_books->count();
+        $favorite_lists = FavoriteList::where('user_id', Auth::user()->id)->orderBy('created_at', 'asc');
+        $totalCount = $favorite_lists->count();
+        $favorite_lists = $favorite_lists->paginate($pagination_num);
+        $currentCount = $favorite_lists->count();
+        
         $favorite_books = \DB::table('favorite_lists')
         ->join('books', 'favorite_lists.book_id', '=', 'books.id')
         ->get();
         
-        return view('favoriteBooks', ['favorite_books' => $favorite_books,
+        return view('favoriteBooks', [
+                                        'favorite_lists' => $favorite_lists,
+                                        'favorite_books' => $favorite_books,
                                         'pagination_num' => $pagination_num,
                                         'totalCount' => $totalCount,
                                         'currentCount' => $currentCount

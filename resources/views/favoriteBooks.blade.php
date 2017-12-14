@@ -33,22 +33,22 @@
                                     </td>
 
                                     <td class="table-text">
-                                        <div>&nbsp;</div>
+                                        <div>{{$favorite_book->author}}</div>
                                     </td>
                                     <td class="table-text">
-                                        <div>&nbsp;</div>
+                                        <div>{{$favorite_book->publisher}}</div>
                                     </td>
                                     <td class="table-text">
-                                        <div>&nbsp;</div>
+                                        <div>{{$favorite_book->store}}</div>
                                     </td>
                                     <td class="table-text">
-                                        <div>&nbsp;</div>
+                                        <div>{{$favorite_book->owner}}</div>
                                     </td>
                                     <td class="table-text">
-                                        <div>&nbsp;</div>
+                                        <div>{{$favorite_book->borrower}}</div>
                                     </td>
                                     <td class="table-text">
-                                        <div>&nbsp;</div>
+                                        <div>{{$favorite_book->return_date}}</div>
                                     </td>
         
                                     <!--お気に入り解除ボタン-->
