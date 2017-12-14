@@ -13,6 +13,7 @@ body {
 
 #wrapper {
     display: flex;
+    min-height: 1000px;
     height: 100%;
 }
 

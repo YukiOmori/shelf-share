@@ -25,7 +25,7 @@
                         @foreach ($favorite_books as $favorite_book)
                                 <tr>
                                     <td class="table-text">
-                                        <div>{{$favorite_book->book_id}}</div>
+                                        <div><img src="../upload/{{$favorite_book->item_img}}" width="100"></img></div>
                                     </td>
 
                                     <td class="table-text">

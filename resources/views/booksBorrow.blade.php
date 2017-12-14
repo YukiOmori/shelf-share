@@ -81,7 +81,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">借りる内容を確認してください</h4>
+            <h4 class="modal-title">返却内容を確認してください</h4>
           </div>
           <form action="{{url('books/deleteBorrower')}}" method="POST">
             {{csrf_field()}}
