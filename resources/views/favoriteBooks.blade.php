@@ -20,16 +20,16 @@
                         <th>返却日</th>                    
                         <th>&nbsp;</th>
                     </thead>
-    @if (count($list) > 0)                    
+    @if (count($favorite_books) > 0)                    
                     <tbody>
-                        @foreach ($list as $lis)
+                        @foreach ($favorite_books as $favorite_book)
                                 <tr>
                                     <td class="table-text">
-                                        <div>{{$lis->book_id}}</div>
+                                        <div>{{$favorite_book->book_id}}</div>
                                     </td>
 
                                     <td class="table-text">
-                                        <div>&nbsp;</div>
+                                        <div>{{$favorite_book->item_name}}</div>
                                     </td>
 
                                     <td class="table-text">
@@ -53,7 +53,7 @@
         
                                     <!--お気に入り解除ボタン-->
                                     <td>
-                                        <form action="{{url('book/deleteFavorite/'.$lis->id)}}" method="POST">
+                                        <form action="{{url('book/deleteFavorite/'.$favorite_book->id)}}" method="POST">
                                             {{csrf_field()}}
                                             {{method_field('DELETE')}}
                                             <button type="submit" class="btn btn-warning">
@@ -80,9 +80,6 @@
                 @endif
                 </table>
                 <div class="row">
-                    <div class="col-md-4 col-md-offset-4">
-                        {{$list->links()}}
-                    </div>
                 </div>
             </div>
         </div>

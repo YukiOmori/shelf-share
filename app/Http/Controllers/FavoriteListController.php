@@ -11,9 +11,20 @@ use Auth;
 class FavoriteListController extends Controller
 {
     public function index() {
-        $list = FavoriteList::where('user_id', Auth::user()->id)->orderBy('created_at', 'asc')->paginate(5);
-        // $books = Book::where('id', $list->book_id);
-        return view('favoriteBooks', ['list' => $list]);
+        $pagination_num = 5;
+        $favorite_books = FavoriteList::where('user_id', Auth::user()->id)->orderBy('created_at', 'asc');
+        $totalCount = $favorite_books->count();
+        $favorite_books = $favorite_books->paginate($pagination_num);
+        $currentCount = $favorite_books->count();
+        $favorite_books = \DB::table('favorite_lists')
+        ->join('books', 'favorite_lists.book_id', '=', 'books.id')
+        ->get();
+        
+        return view('favoriteBooks', ['favorite_books' => $favorite_books,
+                                        'pagination_num' => $pagination_num,
+                                        'totalCount' => $totalCount,
+                                        'currentCount' => $currentCount
+                                        ]);
     }
     
     public function store(Request $request) {
@@ -39,6 +50,6 @@ class FavoriteListController extends Controller
 
     public function delete (FavoriteList $list) {
         $list->delete();
-        return redirect('/');
+        return redirect('/books/favorite');
     }
 }

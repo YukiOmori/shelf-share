@@ -16,7 +16,7 @@ class FavoriteListTable extends Migration
         Schema::create('favorite_lists', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->string('book_id');
+            $table->integer('book_id');
             $table->timestamps();
         });
     }

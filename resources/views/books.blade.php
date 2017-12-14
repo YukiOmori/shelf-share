@@ -86,6 +86,11 @@
                 </table>
                 <div class="row">
                     <div class="col-md-4 col-md-offset-4">
+                        {{$totalCount}}件中
+                        {{1 + $pagination_num * ($books->Currentpage() - 1)}}-
+                        {{$pagination_num * ($books->Currentpage() - 1) + $currentCount}}件を表示
+                    </div>
+                    <div class="col-md-4 col-md-offset-4">
                         {{$books->links()}}
                     </div>
                 </div>

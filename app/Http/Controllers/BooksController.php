@@ -19,9 +19,17 @@ class BooksController extends Controller
     }
 
     public function index() {
-        $books = Book::orderBy('created_at', 'asc')->paginate(5);
+        $pagination_num = 5;
+        $books = Book::orderBy('created_at', 'asc');
+        $totalCount = $books->count();
+        $books = $books->paginate($pagination_num);
+        $currentCount = $books->count();
         $nowDate = new Carbon(Carbon::now());
-        return view('books', ['books' => $books, 'nowDate' => $nowDate]);
+        return view('books', ['books' => $books, 'nowDate' => $nowDate,
+                            'pagination_num' => $pagination_num,
+                            'totalCount' => $totalCount,
+                            'currentCount' => $currentCount
+                            ]);
     }
     
     public function indexLend() {
@@ -171,6 +179,6 @@ class BooksController extends Controller
 
     public function delete (Book $book) {
         $book->delete();
-        return redirect('/');
+        return redirect('/books/lend');
     }
 }
