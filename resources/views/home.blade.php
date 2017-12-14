@@ -34,6 +34,10 @@
                     <h3><a href="{{url('/books/favorite')}}"><i class="fa fa-book" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>お気に入り</a></h3>
                     <p>検索してお気に入り登録した書籍の一覧です。</p>
                 </li>
+                <li>
+                    <h3><a href="{{url('/books/history')}}"></i><i class="fa fa-history" aria-hidden="true"></i>履歴</a></h3>
+                    <p>あなたが借りた書籍の履歴です。</p>
+                </li>
             </ul>
         </div>
     </div>

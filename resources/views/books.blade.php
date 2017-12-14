@@ -19,7 +19,7 @@
                         <th>所有者</th>
                         <th>借人</th>
                         <th>返却日</th>                        
-                        <th>&nbsp;</th>
+                        <th>ステータス</th>
                         <th>&nbsp;</th>
                     </thead>
     @if (count($books) > 0)                    
@@ -53,7 +53,12 @@
                             </td>
                             <!--借りるボタン-->
                             <td>
+                            @if ($book->return_date == '')
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#borrowModal{{$book->id}}">借りる</button>
+                            @else
+                                返却待ち
+                            @endif
+
                             </td>
                             
                             <!--お気に入りボタン-->
@@ -146,7 +151,6 @@
                     <input type="hidden" name="id" value="{{$book->id}}"/>
                     <input type="hidden" name="borrower_id" id="borrower_id" value="{{Auth::user()->id}}"/>
                     <input type="hidden" name="borrower" id="borrower" value="{{Auth::user()->name}}"/>
-
                     <button type="submit" class="btn btn-primary">借りる</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">閉じる</button>
                </div>

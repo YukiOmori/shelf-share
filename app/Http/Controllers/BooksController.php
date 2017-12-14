@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use App\History;
 use Validator;
 use Auth;
 use Carbon\Carbon;
@@ -151,7 +152,16 @@ class BooksController extends Controller
         $books->borrower = $request->borrower;
         // $books->start_date = $request->start_date;
         $books->return_date = $request->return_date;
+        
+        // historyの追加（TODO:理想的にはメソッド呼び出し）
+        $history = new History;
+        $history->user_id = Auth::user()->id;
+        $history->book_id = $request->id;
+        $nowDate = new Carbon(Carbon::now());
+        $history->borrowed_from = $nowDate;
+        
         $books->save();
+        $history->save();
         return redirect('/');
     }
      
@@ -174,6 +184,7 @@ class BooksController extends Controller
         // $books->start_date = '';
         $books->return_date = '';
         $books->save();
+        
         return redirect('/books/borrow');
     }
 

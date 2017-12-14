@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\FavoriteList;
+use App\History;
 use App\Book;
 use Validator;
 use Auth;

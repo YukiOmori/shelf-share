@@ -16,7 +16,7 @@ class HistoryTable extends Migration
         Schema::create('histories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->string('book_id');
+            $table->integer('book_id');
             $table->datetime('borrowed_from');
             $table->datetime('borrowed_to');
             $table->timestamps();

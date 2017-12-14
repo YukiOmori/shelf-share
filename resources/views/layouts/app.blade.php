@@ -109,7 +109,7 @@
                     <li><a href="{{url('/books/lend')}}"><i class="fa fa-book" aria-hidden="true"></i><i class="fa fa-arrow-right" aria-hidden="true"></i>貸出書籍</a></li>
                     <li><a href="{{url('/books/borrow')}}"><i class="fa fa-book" aria-hidden="true"></i><i class="fa fa-arrow-left" aria-hidden="true"></i>借入書籍</a></li>
                     <li><a href="{{url('/books/favorite')}}"><i class="fa fa-star" aria-hidden="true"></i>お気に入り</a></li>
-                    <li><a href="{{url('/books/fistory')}}"><i class="fa fa-history" aria-hidden="true"></i>履歴</a></li>
+                    <li><a href="{{url('/books/history')}}"><i class="fa fa-history" aria-hidden="true"></i>履歴</a></li>
                 </ul>
             </aside>
             @endguest
