@@ -49,11 +49,12 @@ body {
     margin-bottom: 0;
     padding-left: 0;
     padding-top: 50px;
+    text-indent: 10px;
 }
 
 #sidebar ul li{
     width: 200px;
-    text-align: center;
+    text-align: left;
     list-style: none;
 }
 
